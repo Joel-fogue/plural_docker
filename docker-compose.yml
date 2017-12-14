@@ -2,7 +2,7 @@ version: '3'
 
 services:
   node_service:
-    build: ./
+    build: ./  # points to the current location of the Dockerfile
     ports:
       - 8081:3000
     restart: always
