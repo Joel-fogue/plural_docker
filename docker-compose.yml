@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  node_service:
+    build: ./
+    ports:
+      - 8081:3000
+    restart: always
+    volumes:
+      - ./${CURRENT_WORKING_DIR}:/var/www
+    command: node npm start
+    environment:
+      CURRENT_WORKING_DIR: $$(pwd)
+    command: export CURRENT_WORKING_DIR
