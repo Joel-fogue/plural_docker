@@ -4,11 +4,13 @@ services:
   node_service:
     build: ./  # points to the current location of the Dockerfile
     ports:
-      - 8081:3000
+      - 8085:3000
     restart: always
     volumes:
-      - ./${CURRENT_WORKING_DIR}:/var/www
-    command: node npm start
-    environment:
-      CURRENT_WORKING_DIR: $$(pwd)
-    command: export CURRENT_WORKING_DIR
+      - /home/joel/workspace/plural_docker_webdev/Express_website/:/var/www/
+    #  - ./${CURRENT_WORKING_DIR}/Express_website/:/var/www
+    working_dir: /var/www
+    command: npm start
+    #environment:
+    #  CURRENT_WORKING_DIR: $$(pwd)
+    #command: export CURRENT_WORKING_DIR
