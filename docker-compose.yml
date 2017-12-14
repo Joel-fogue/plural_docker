@@ -7,10 +7,8 @@ services:
       - 8085:3000
     restart: always
     volumes:
-      - /home/joel/workspace/plural_docker_webdev/Express_website/:/var/www/
-    #  - ./${CURRENT_WORKING_DIR}/Express_website/:/var/www
+      - ./${CURRENT_WORKING_DIR}/Express_website/:/var/www
     working_dir: /var/www
     command: npm start
-    #environment:
-    #  CURRENT_WORKING_DIR: $$(pwd)
-    #command: export CURRENT_WORKING_DIR
+    environment:
+      CURRENT_WORKING_DIR: $$(pwd) #To escape a dollar sign, add another dollar sign
